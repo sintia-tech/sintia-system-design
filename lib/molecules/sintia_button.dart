@@ -296,8 +296,9 @@ class _SintiaButtonState extends State<SintiaButton> {
             onPressed: _isDisabled ? null : _onTap,
             style: ButtonStyle(
               backgroundColor: WidgetStateProperty.resolveWith((states) {
-                if (states.contains(WidgetState.disabled))
+                if (states.contains(WidgetState.disabled)) {
                   return AppColors.statusDisabled;
+                }
                 return bgColor;
               }),
               foregroundColor: WidgetStateProperty.resolveWith((states) {
