@@ -7,12 +7,12 @@ void main() {
       expect(SintiaBreakpoints.mobile, 600);
     });
 
-    test('tablet breakpoint is 1024', () {
-      expect(SintiaBreakpoints.tablet, 1024);
+    test('tablet breakpoint is 900', () {
+      expect(SintiaBreakpoints.tablet, 900);
     });
 
-    test('desktop breakpoint is 1440', () {
-      expect(SintiaBreakpoints.desktop, 1440);
+    test('desktop breakpoint is 1200', () {
+      expect(SintiaBreakpoints.desktop, 1200);
     });
 
     test('breakpoints are in ascending order', () {

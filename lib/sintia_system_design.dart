@@ -1,4 +1,4 @@
-library sintia_system_design;
+library;
 
 // Atoms
 export 'atoms/sintia_card.dart';

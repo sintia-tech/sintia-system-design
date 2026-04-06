@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sintia_system_design/extensions/build_context_extension.dart';
+import 'package:sintia_system_design/sintia_system_design.dart';
 
 void main() {
   final theme = ThemeData.light().copyWith(
@@ -11,18 +11,24 @@ void main() {
   );
 
   Widget buildTestApp(Widget child) => MaterialApp(
-        theme: theme,
-        home: Scaffold(body: child),
-      );
+    theme: theme,
+    home: Scaffold(body: child),
+  );
 
   group('BuildContextThemeExtension', () {
     testWidgets('theme returns current ThemeData', (tester) async {
       late ThemeData capturedTheme;
 
-      await tester.pumpWidget(buildTestApp(Builder(builder: (context) {
-        capturedTheme = context.theme;
-        return const SizedBox();
-      })));
+      await tester.pumpWidget(
+        buildTestApp(
+          Builder(
+            builder: (context) {
+              capturedTheme = context.theme;
+              return const SizedBox();
+            },
+          ),
+        ),
+      );
 
       expect(capturedTheme, isNotNull);
     });
@@ -30,10 +36,16 @@ void main() {
     testWidgets('colorScheme returns theme colorScheme', (tester) async {
       late ColorScheme capturedScheme;
 
-      await tester.pumpWidget(buildTestApp(Builder(builder: (context) {
-        capturedScheme = context.colorScheme;
-        return const SizedBox();
-      })));
+      await tester.pumpWidget(
+        buildTestApp(
+          Builder(
+            builder: (context) {
+              capturedScheme = context.colorScheme;
+              return const SizedBox();
+            },
+          ),
+        ),
+      );
 
       expect(capturedScheme.primary, Colors.blue);
     });
@@ -41,10 +53,16 @@ void main() {
     testWidgets('primaryColor returns colorScheme.primary', (tester) async {
       late Color capturedColor;
 
-      await tester.pumpWidget(buildTestApp(Builder(builder: (context) {
-        capturedColor = context.primaryColor;
-        return const SizedBox();
-      })));
+      await tester.pumpWidget(
+        buildTestApp(
+          Builder(
+            builder: (context) {
+              capturedColor = context.primaryColor;
+              return const SizedBox();
+            },
+          ),
+        ),
+      );
 
       expect(capturedColor, Colors.blue);
     });
@@ -52,10 +70,16 @@ void main() {
     testWidgets('onPrimaryColor returns colorScheme.onPrimary', (tester) async {
       late Color capturedColor;
 
-      await tester.pumpWidget(buildTestApp(Builder(builder: (context) {
-        capturedColor = context.onPrimaryColor;
-        return const SizedBox();
-      })));
+      await tester.pumpWidget(
+        buildTestApp(
+          Builder(
+            builder: (context) {
+              capturedColor = context.onPrimaryColor;
+              return const SizedBox();
+            },
+          ),
+        ),
+      );
 
       expect(capturedColor, Colors.white);
     });
@@ -64,11 +88,17 @@ void main() {
       late Color capturedError;
       late Color schemeError;
 
-      await tester.pumpWidget(buildTestApp(Builder(builder: (context) {
-        capturedError = context.errorColor;
-        schemeError = context.colorScheme.error;
-        return const SizedBox();
-      })));
+      await tester.pumpWidget(
+        buildTestApp(
+          Builder(
+            builder: (context) {
+              capturedError = context.errorColor;
+              schemeError = context.colorScheme.error;
+              return const SizedBox();
+            },
+          ),
+        ),
+      );
 
       expect(capturedError, schemeError);
     });

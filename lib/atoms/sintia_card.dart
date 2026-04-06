@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sintia_system_design/extensions/build_context_extension.dart';
-import 'package:sintia_system_design/extensions/sintia_preview.dart';
-import '../tokens/colors.dart';
-import '../tokens/shadows.dart';
-import '../tokens/sizes.dart';
+import 'package:sintia_system_design/sintia_system_design.dart';
 
 class SintiaCard extends StatelessWidget {
   const SintiaCard({

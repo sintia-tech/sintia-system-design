@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sintia_system_design/extensions/sintia_preview.dart';
-import '../atoms/sintia_text.dart';
-import '../extensions/build_context_extension.dart';
-import '../tokens/breakpoints.dart';
-import '../tokens/colors.dart';
-import '../tokens/sizes.dart';
+import 'package:sintia_system_design/sintia_system_design.dart';
 
 enum SintiaButtonVariant { primary, secondary, destructive, text }
 
@@ -100,12 +95,10 @@ class _ButtonContent extends StatelessWidget {
   final String label;
   final Color color;
   final _SizeConfig config;
-  final IconData? leftIcon;
-  final IconData? rightIcon;
-  final IconData? topIcon;
-  final IconData? bottomIcon;
-  final Color? iconColor;
-  final double? iconSize;
+  final Widget? leftIcon;
+  final Widget? rightIcon;
+  final Widget? topIcon;
+  final Widget? bottomIcon;
 
   const _ButtonContent({
     required this.label,
@@ -115,15 +108,10 @@ class _ButtonContent extends StatelessWidget {
     this.rightIcon,
     this.topIcon,
     this.bottomIcon,
-    this.iconColor,
-    this.iconSize,
   });
 
   @override
   Widget build(BuildContext context) {
-    final icoColor = iconColor ?? color;
-    final icoSize = iconSize ?? config.iconSize;
-
     final labelWidget = Flexible(
       child: SintiaText(
         label,
@@ -140,13 +128,13 @@ class _ButtonContent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (topIcon != null) ...[
-            Icon(topIcon, size: icoSize, color: icoColor),
+            topIcon!,
             SizedBox(height: config.spacing / 2),
           ],
           labelWidget,
           if (bottomIcon != null) ...[
             SizedBox(height: config.spacing / 2),
-            Icon(bottomIcon, size: icoSize, color: icoColor),
+            bottomIcon!,
           ],
         ],
       );
@@ -156,15 +144,9 @@ class _ButtonContent extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        if (leftIcon != null) ...[
-          Icon(leftIcon, size: icoSize, color: icoColor),
-          SizedBox(width: config.spacing),
-        ],
+        if (leftIcon != null) ...[leftIcon!, SizedBox(width: config.spacing)],
         labelWidget,
-        if (rightIcon != null) ...[
-          SizedBox(width: config.spacing),
-          Icon(rightIcon, size: icoSize, color: icoColor),
-        ],
+        if (rightIcon != null) ...[SizedBox(width: config.spacing), rightIcon!],
       ],
     );
   }
@@ -219,12 +201,10 @@ class SintiaButton extends StatefulWidget {
   final double? desktopWidth;
   final Color? backgroundColor;
   final Color? textColor;
-  final Color? iconColor;
-  final IconData? leftIcon;
-  final IconData? rightIcon;
-  final IconData? topIcon;
-  final IconData? bottomIcon;
-  final double? iconSize;
+  final Widget? leftIcon;
+  final Widget? rightIcon;
+  final Widget? topIcon;
+  final Widget? bottomIcon;
   final Color? borderColor;
   final BorderRadius? borderRadius;
   final String? semanticId;
@@ -240,12 +220,10 @@ class SintiaButton extends StatefulWidget {
     this.desktopWidth,
     this.backgroundColor,
     this.textColor,
-    this.iconColor,
     this.leftIcon,
     this.rightIcon,
     this.topIcon,
     this.bottomIcon,
-    this.iconSize,
     this.borderColor,
     this.borderRadius,
     this.semanticId,
@@ -338,8 +316,6 @@ class _SintiaButtonState extends State<SintiaButton> {
                     rightIcon: widget.rightIcon,
                     topIcon: widget.topIcon,
                     bottomIcon: widget.bottomIcon,
-                    iconColor: widget.iconColor,
-                    iconSize: widget.iconSize,
                   ),
           ),
         ),
@@ -382,7 +358,7 @@ Widget sintiaButtonDisabledPreview() =>
 Widget sintiaButtonIconsPreview() => SintiaButton(
   onPressed: () async {},
   label: 'With icons',
-  leftIcon: Icons.add,
-  rightIcon: Icons.arrow_forward,
+  leftIcon: const Icon(Icons.add),
+  rightIcon: const Icon(Icons.arrow_forward),
 );
 // coverage:ignore-end
