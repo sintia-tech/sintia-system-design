@@ -1,3 +1,7 @@
+## 0.3.0
+
+- Created `SintiaAppBar` with leading, title, and trailing components, including action buttons and badge support
+
 ## 0.2.0
 
 - Streamline imports in components and changing iconData to widgets.

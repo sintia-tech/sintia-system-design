@@ -18,6 +18,9 @@ export 'foundation/theme/sintia_themes.dart';
 // Molecules
 export 'molecules/sintia_button.dart';
 
+// Organisms
+export 'organisms/sintia_app_bar.dart';
+
 // Tokens
 export 'tokens/breakpoints.dart';
 export 'tokens/colors.dart';
