@@ -55,7 +55,7 @@ class SintiaAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final SintiaAppBarLeadingType leadingType;
   final VoidCallback? onLeadingPressed;
-  final SintiaAppBarAction? trailingAction;
+  final List<SintiaAppBarAction>? trailingActions;
   final VoidCallback? onTitlePressed;
   final Widget? titlePrefix;
   final Widget? titleSuffix;
@@ -68,7 +68,7 @@ class SintiaAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     this.leadingType = SintiaAppBarLeadingType.none,
     this.onLeadingPressed,
-    this.trailingAction,
+    this.trailingActions,
     this.onTitlePressed,
     this.titlePrefix,
     this.titleSuffix,
@@ -112,8 +112,9 @@ class SintiaAppBar extends StatelessWidget implements PreferredSizeWidget {
         centerTitle: _hasLeading,
       ),
       actions: [
-        if (trailingAction != null)
-          SintiaAppBarTrailing(action: trailingAction!, color: fgColor),
+        if (trailingActions != null)
+          for (var action in trailingActions!)
+            SintiaAppBarTrailing(action: action, color: fgColor),
       ],
     );
   }
@@ -125,13 +126,13 @@ Widget sintiaAppBarHomePreview() => SintiaAppBar(
   title: 'Tienda el Centro',
   titleSuffix: const Icon(Icons.keyboard_arrow_down),
   onTitlePressed: () {},
-  trailingAction: SintiaAppBarAction.cart(onPressed: () {}, itemCount: 3),
+  trailingActions: [SintiaAppBarAction.cart(onPressed: () {}, itemCount: 3)],
 );
 
 @SintiaPreview(name: 'Sin back', group: 'SintiaAppBar')
 Widget sintiaAppBarNoBackPreview() => SintiaAppBar(
   title: 'Mis pedidos',
-  trailingAction: SintiaAppBarAction.cart(onPressed: () {}),
+  trailingActions: [SintiaAppBarAction.cart(onPressed: () {})],
 );
 
 @SintiaPreview(name: 'Con back', group: 'SintiaAppBar')
@@ -139,7 +140,10 @@ Widget sintiaAppBarWithBackPreview() => SintiaAppBar(
   title: 'Detalle del producto',
   leadingType: SintiaAppBarLeadingType.back,
   onLeadingPressed: () {},
-  trailingAction: SintiaAppBarAction.cart(onPressed: () {}, itemCount: 1),
+  trailingActions: [
+    SintiaAppBarAction.cart(onPressed: () {}, itemCount: 1),
+    SintiaAppBarAction(icon: Icons.search, onPressed: () {}, tooltip: 'Buscar'),
+  ],
 );
 
 @SintiaPreview(name: 'Acción personalizada', group: 'SintiaAppBar')
@@ -147,11 +151,9 @@ Widget sintiaAppBarCustomActionPreview() => SintiaAppBar(
   title: 'Búsqueda',
   leadingType: SintiaAppBarLeadingType.back,
   onLeadingPressed: () {},
-  trailingAction: SintiaAppBarAction(
-    icon: Icons.search,
-    onPressed: () {},
-    tooltip: 'Buscar',
-  ),
+  trailingActions: [
+    SintiaAppBarAction(icon: Icons.search, onPressed: () {}, tooltip: 'Buscar'),
+  ],
 );
 
 @SintiaPreview(name: 'Sin acciones', group: 'SintiaAppBar')

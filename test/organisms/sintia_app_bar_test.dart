@@ -11,7 +11,7 @@ void main() {
     String title = 'Test',
     SintiaAppBarLeadingType leadingType = SintiaAppBarLeadingType.none,
     VoidCallback? onLeadingPressed,
-    SintiaAppBarAction? trailingAction,
+    List<SintiaAppBarAction>? trailingActions,
     VoidCallback? onTitlePressed,
     Widget? titlePrefix,
     Widget? titleSuffix,
@@ -24,7 +24,7 @@ void main() {
           title: title,
           leadingType: leadingType,
           onLeadingPressed: onLeadingPressed,
-          trailingAction: trailingAction,
+          trailingActions: trailingActions,
           onTitlePressed: onTitlePressed,
           titlePrefix: titlePrefix,
           titleSuffix: titleSuffix,
@@ -142,10 +142,9 @@ void main() {
       ) async {
         await tester.pumpWidget(
           buildSubject(
-            trailingAction: SintiaAppBarAction.cart(
-              onPressed: () {},
-              itemCount: 2,
-            ),
+            trailingActions: [
+              SintiaAppBarAction.cart(onPressed: () {}, itemCount: 2),
+            ],
           ),
         );
 
@@ -158,10 +157,12 @@ void main() {
 
         await tester.pumpWidget(
           buildSubject(
-            trailingAction: SintiaAppBarAction(
-              icon: Icons.search,
-              onPressed: () => pressed = true,
-            ),
+            trailingActions: [
+              SintiaAppBarAction(
+                icon: Icons.search,
+                onPressed: () => pressed = true,
+              ),
+            ],
           ),
         );
 
