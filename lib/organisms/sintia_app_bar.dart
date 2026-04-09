@@ -84,9 +84,9 @@ class SintiaAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = context.colorScheme;
     final fgColor = foregroundColor ?? colorScheme.onSurface;
-    final titleStyle = Theme.of(context).textTheme.titleLarge?.copyWith(
+    final titleStyle = context.textTheme.titleLarge?.copyWith(
       color: fgColor,
       fontWeight: FontWeight.bold,
     );

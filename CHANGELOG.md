@@ -1,3 +1,7 @@
+## 0.5.0
+
+- Add `SintiaTextField` component with customizable properties for enhanced text input experience
+
 ## 0.4.0
 
 - Change trailingAction to trailingActions in `SintiaAppBar` for multiple action support
