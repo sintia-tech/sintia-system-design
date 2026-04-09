@@ -1,3 +1,7 @@
+## 0.5.1
+
+- Export `SintiaTextField` component for improved text input functionality
+
 ## 0.5.0
 
 - Add `SintiaTextField` component with customizable properties for enhanced text input experience

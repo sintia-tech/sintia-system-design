@@ -17,6 +17,7 @@ export 'foundation/theme/sintia_themes.dart';
 
 // Molecules
 export 'molecules/sintia_button.dart';
+export 'molecules/sintia_text_field.dart';
 
 // Organisms
 export 'organisms/sintia_app_bar.dart';
