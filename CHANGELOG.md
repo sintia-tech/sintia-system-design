@@ -1,3 +1,7 @@
+## 0.5.2
+
+- Allow customization of label style in `SintiaTextField` for improved text presentation
+
 ## 0.5.1
 
 - Export `SintiaTextField` component for improved text input functionality

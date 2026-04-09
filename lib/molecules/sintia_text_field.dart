@@ -166,7 +166,10 @@ class SintiaTextField extends StatelessWidget {
       spacing: spacing ?? SintiaSizes.size1,
       children: [
         // Label
-        SintiaText(label ?? '', style: context.textTheme.bodyMedium),
+        SintiaText(
+          label ?? '',
+          style: labelStyle ?? context.textTheme.bodyMedium,
+        ),
         // Text Field
         Semantics(
           identifier: semanticIdentifier ?? 'sintia_text_field',
