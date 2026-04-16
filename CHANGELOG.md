@@ -1,3 +1,7 @@
+## 0.5.3
+
+- Add onTap callback to `SintiaTextField` for enhanced interactivity
+
 ## 0.5.2
 
 - Allow customization of label style in `SintiaTextField` for improved text presentation
