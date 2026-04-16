@@ -118,6 +118,9 @@ class SintiaTextField extends StatelessWidget {
   /// Disabled fill color
   final Color? disabledFillColor;
 
+  /// On tap callback
+  final VoidCallback? onTap;
+
   const SintiaTextField({
     super.key,
     this.label,
@@ -157,6 +160,7 @@ class SintiaTextField extends StatelessWidget {
     this.contentPadding,
     this.enabledFillColor,
     this.disabledFillColor,
+    this.onTap,
   });
 
   @override
@@ -176,6 +180,7 @@ class SintiaTextField extends StatelessWidget {
           label: label,
           textField: true,
           child: TextFormField(
+            onTap: onTap,
             controller: controller,
             initialValue: initialValue,
             maxLength: maxLength,
