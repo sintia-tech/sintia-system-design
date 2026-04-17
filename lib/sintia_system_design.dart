@@ -21,6 +21,7 @@ export 'molecules/sintia_text_field.dart';
 
 // Organisms
 export 'organisms/sintia_app_bar.dart';
+export 'organisms/sintia_dialog.dart';
 
 // Tokens
 export 'tokens/breakpoints.dart';

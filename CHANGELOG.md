@@ -1,3 +1,7 @@
+## 0.6.0
+
+- Add `SintiaDialog` component for customizable dialog functionality in the Sintia design system
+
 ## 0.5.3
 
 - Add onTap callback to `SintiaTextField` for enhanced interactivity
